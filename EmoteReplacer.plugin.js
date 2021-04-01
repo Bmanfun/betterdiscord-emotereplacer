@@ -1,8 +1,8 @@
 /**
  * @name EmoteReplacer
  * @authorId 68834122860077056
- * @website https://github.com/Yentis/betterdiscord-emotereplacer
- * @source https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js
+ * @website https://github.com/Bmanfun/betterdiscord-emotereplacer
+ * @source https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js
  */
 
 let EmoteReplacer = (() => {
@@ -17,8 +17,8 @@ let EmoteReplacer = (() => {
             }],
             version: '1.4.8',
             description: 'Enables different types of formatting in standard Discord chat. Support Server: bit.ly/ZeresServer',
-            github: 'https://github.com/Yentis/betterdiscord-emotereplacer',
-            github_raw: 'https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js'
+            github: 'https://github.com/Bmanfun/betterdiscord-emotereplacer',
+            github_raw: 'https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js'
         },
         changelog: [{
 			title: 'Changes',
@@ -143,6 +143,7 @@ let EmoteReplacer = (() => {
                     this.button = null;
                     this.emoteNames = null;
                     this.modifiers = [];
+                    this.pluginDir = (BdApi.Plugins && BdApi.Plugins.folder) || window.ContentManager.pluginsFolder;
 
                     this.unpatches = [
                         ZeresPluginLibrary.Patcher.instead(
@@ -161,7 +162,7 @@ let EmoteReplacer = (() => {
                 }
 
                 async onStart() {
-                    PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), 'https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js');
+                    PluginUpdater.checkForUpdate(this.getName(), this.getVersion(), 'https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js');
 
                     await BdApi.linkJS('pica', '//cdn.jsdelivr.net/gh/yentis/betterdiscord-emotereplacer@058ee1d1d00933e2a55545e9830d67549a8e354a/pica.js');
                     await BdApi.linkJS('gifUtils', '//cdn.jsdelivr.net/gh/yentis/betterdiscord-emotereplacer@601a3100832b6a53352473225f148010ed99773f/gif-utils.js');
@@ -505,16 +506,17 @@ let EmoteReplacer = (() => {
                     return new Promise((resolve, reject) => {
                         $.ajax({
                             dataType: 'json',
-                            url: 'https://raw.githubusercontent.com/Yentis/yentis.github.io/master/emotes/emotes.json',
+                            url: "https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/emotes/emotes.json",
                             success: function (data) {
                                 let emoteNames = {};
+                                //console.log("EMOTEREPLACER SUCCESS");
 
                                 for (let key in data) {
                                     if (data.hasOwnProperty(key)) {
                                         let split = data[key].split('.');
                                         let name = split[0];
 
-                                        emoteNames[name] = 'https://raw.githubusercontent.com/Yentis/yentis.github.io/master/emotes/images/' + key + '.' + split[1];
+                                        emoteNames[name] = 'https://raw.githubusercontent.com/Bmanfun/yentis.github.io/master/emotes/images/' + key + '.' + split[1];
                                     }
                                 }
 
@@ -529,7 +531,7 @@ let EmoteReplacer = (() => {
                     return new Promise((resolve, reject) => {
                         $.ajax({
                             dataType: 'json',
-                            url: 'https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/modifiers.json',
+                            url: 'https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/modifiers.json',
                             success: data => resolve(data),
                             error: (_obj, name, err) => reject(name + ' - ' + err)
                         });

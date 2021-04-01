@@ -11,9 +11,9 @@ let EmoteReplacer = (() => {
             name: 'EmoteReplacer',
             authors: [{
                 name: 'Yentis',
-                discord_id: '68834122860077056',
+                discord_id: '',
                 github_username: 'Yentis',
-                twitter_username: 'yentis178'
+                twitter_username: ''
             }],
             version: '1.4.8',
             description: 'Enables different types of formatting in standard Discord chat. Support Server: bit.ly/ZeresServer',
@@ -515,7 +515,6 @@ let EmoteReplacer = (() => {
                                     if (data.hasOwnProperty(key)) {
                                         let split = data[key].split('.');
                                         let name = split[0];
-
                                         emoteNames[name] = 'https://raw.githubusercontent.com/Bmanfun/yentis.github.io/master/emotes/images/' + key + '.' + split[1];
                                     }
                                 }
@@ -834,21 +833,34 @@ let EmoteReplacer = (() => {
                 fetchBlobAndUpload(emote) {
                     let url = emote.url, name = emote.name, commands = emote.commands ? emote.commands : [];
                     emote.channel = SelectedChannelStore.getChannelId();
-
+                    //console.log("EmoteReplacer: "+url.split('.')[5]);
+                    let ext=url.split('.')[5]
                     if (url.endsWith('.gif')) {
                         return this.getMetaAndModifyGif(emote);
                     } else {
                         if (this.findCommand(commands, this.getGifModifiers())) {
                             return this.getMetaAndModifyGif(emote);
-                        } else {
+                        } else if (ext=='png') {
                             return new Promise((resolve, reject) => {
                                 fetch(url)
                                 .then(res => res.blob())
+                                //.then(console.log("EMOTEREPLACER (): "+name+'.'+ext))
                                 .then(blob => {
                                     this.compress(blob, commands, (resultBlob) => {
                                         this.uploadFile(resultBlob, name + '.png', emote);
                                         resolve();
                                     });
+                                })
+                                .catch(err => reject(err));
+                            })
+                        } else {
+                            return new Promise((resolve, reject) => {
+                                fetch(url)
+                                .then(res => res.blob())
+                                //.then(console.log("EMOTEREPLACER (): "+name+'.'+ext))
+                                .then(blob => {
+                                    this.uploadFile(blob, name + '.'+ext, emote);
+                                    resolve();
                                 })
                                 .catch(err => reject(err));
                             })

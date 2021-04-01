@@ -277,7 +277,9 @@ let EmoteReplacer = (() => {
                         let foundEmote = this.getTextPos(content);
 
                         if (foundEmote) {
-                            content = content.substring(0, foundEmote.pos) + content.substring(foundEmote.pos + foundEmote.nameAndCommand.length);
+                            content = content.substring(0, foundEmote.pos-1) + content.substring(foundEmote.pos + foundEmote.nameAndCommand.length);
+                            //console.log(foundEmote);
+                            //console.log("EmoteReplacer (send): "+content);
                             content.trim();
 
                             foundEmote.content = content;
@@ -759,7 +761,7 @@ let EmoteReplacer = (() => {
 
                 getTextPos(value) {
                     let foundEmotes = [];
-                    let regexCommand = new RegExp('\\b:\\S{4,}\\b');
+                    let regexCommand = new RegExp(':\\w{1,3}\\S{2,}');
 
                     for (let key in this.emoteNames) {
                         if (this.emoteNames.hasOwnProperty(key)) {
@@ -787,7 +789,9 @@ let EmoteReplacer = (() => {
 
                                         return [split[0], split[1] || null];
                                     });
+                                    //console.log("EMOTEREPL com "+command[0]);
                                     emote.nameAndCommand = emote.nameAndCommand + command[0];
+                                    //console.log("EMOTEREPL "+emote.nameAndCommand);
                                 }
                                 
                                 let beforeEmote = value.substring(0, pos);

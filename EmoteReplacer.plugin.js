@@ -508,7 +508,7 @@ let EmoteReplacer = (() => {
                     return new Promise((resolve, reject) => {
                         $.ajax({
                             dataType: 'json',
-                            url: "https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/emotes/emotes.json",
+                            url: "https://raw.githubusercontent.com/Bmanfun/yentis.github.io/master/emotes/emotes.json",
                             success: function (data) {
                                 let emoteNames = {};
                                 //console.log("EMOTEREPLACER SUCCESS");

@@ -151,7 +151,7 @@ module.exports = (() => {
 
             this.enableLockedEmojis();
 
-            await BdApi.linkJS('pica', '//cdn.jsdelivr.net/gh/yentis/betterdiscord-emotereplacer@058ee1d1d00933e2a55545e9830d67549a8e354a/pica.js');
+            await BdApi.linkJS('pica', '//cdn.jsdelivr.net/gh/Bmanfun/betterdiscord-emotereplacer@058ee1d1d00933e2a55545e9830d67549a8e354a/pica.js');
             this.injectGifUtils();
 
             const customEmotes = {};

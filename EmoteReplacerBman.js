@@ -15,12 +15,17 @@ module.exports = (() => {
                 github_username: 'Yentis',
                 twitter_username: 'yentis178'
             }],
-            version: '1.9.5',
+            version: '1.9.69',
             description: 'Check for known emote names and replace them with an embedded image of the emote. Also supports modifiers similar to BetterDiscord\'s emotes. Standard emotes: https://yentis.github.io/emotes/',
             github: 'https://github.com/Bmanfun/betterdiscord-emotereplacer',
             github_raw: 'https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js'
         },
         changelog: [{
+			title: '1.9.69',
+			items: [
+				'The Bman Update.'
+			]
+		}, {
 			title: '1.9.5',
 			items: [
 				'Fix modifier autocomplete menu not showing'

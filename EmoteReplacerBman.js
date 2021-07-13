@@ -787,7 +787,7 @@ module.exports = (() => {
 
         getEmoteNames() {
             return new Promise((resolve, reject) => {
-                require('https').get('https://raw.githubusercontent.com/Yentis/yentis.github.io/master/emotes/emotes.json', (res) => {
+                require('https').get('https://raw.githubusercontent.com/Bmanfun/yentis.github.io/master/emotes/emotes.json', (res) => {
                     let data = '';
 
                     res.on('data', (chunk) => {

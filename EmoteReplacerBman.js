@@ -1,8 +1,8 @@
 /**
  * @name EmoteReplacer
  * @authorId 68834122860077056
- * @website https://github.com/Yentis/betterdiscord-emotereplacer
- * @source https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js
+ * @website https://github.com/Bmanfun/betterdiscord-emotereplacer
+ * @source https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacerBman.js
  */
 
 module.exports = (() => {
@@ -17,8 +17,8 @@ module.exports = (() => {
             }],
             version: '1.9.5',
             description: 'Check for known emote names and replace them with an embedded image of the emote. Also supports modifiers similar to BetterDiscord\'s emotes. Standard emotes: https://yentis.github.io/emotes/',
-            github: 'https://github.com/Yentis/betterdiscord-emotereplacer',
-            github_raw: 'https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js'
+            github: 'https://github.com/Bmanfun/betterdiscord-emotereplacer',
+            github_raw: 'https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/EmoteReplacer.plugin.js'
         },
         changelog: [{
 			title: '1.9.5',

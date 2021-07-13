@@ -805,7 +805,7 @@ module.exports = (() => {
                             let split = emoteNames[key].split('.');
                             let name = split[0];
 
-                            emoteNames[name] = 'https://raw.githubusercontent.com/Yentis/yentis.github.io/master/emotes/images/' + key + '.' + split[1];
+                            emoteNames[name] = 'https://raw.githubusercontent.com/Bmanfun/yentis.github.io/master/emotes/images/' + key + '.' + split[1];
                         });
 
                         resolve(emoteNames);
@@ -818,7 +818,7 @@ module.exports = (() => {
 
         getModifiers() {
             return new Promise((resolve, reject) => {
-                require('https').get('https://raw.githubusercontent.com/Yentis/betterdiscord-emotereplacer/master/modifiers.json', (res) => {
+                require('https').get('https://raw.githubusercontent.com/Bmanfun/betterdiscord-emotereplacer/master/modifiers.json', (res) => {
                     let data = '';
 
                     res.on('data', (chunk) => {

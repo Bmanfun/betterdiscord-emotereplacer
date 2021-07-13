@@ -10,10 +10,10 @@ module.exports = (() => {
         info: {
             name: 'EmoteReplacer',
             authors: [{
-                name: 'Yentis',
-                discord_id: '68834122860077056',
-                github_username: 'Yentis',
-                twitter_username: 'yentis178'
+                name: 'Bmanfun',
+                discord_id: '',
+                github_username: 'Bmanfun',
+                twitter_username: 'Bmanfun'
             }],
             version: '1.9.69',
             description: 'Check for known emote names and replace them with an embedded image of the emote. Also supports modifiers similar to BetterDiscord\'s emotes. Standard emotes: https://yentis.github.io/emotes/',
